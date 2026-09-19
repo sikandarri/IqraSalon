@@ -1,0 +1,1 @@
+CREATE INDEX `rate_limits_expires` ON `rate_limits` (`expires`);

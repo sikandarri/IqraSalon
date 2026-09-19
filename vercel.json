@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "buildCommand": "pnpm build:mern",
+  "outputDirectory": "dist-mern",
+  "functions": {
+    "api/[...path].mjs": {
+      "maxDuration": 30
+    }
+  },
+  "rewrites": [
+    {"source": "/admin", "destination": "/index.html"},
+    {"source": "/admin/:path*", "destination": "/index.html"}
+  ]
+}

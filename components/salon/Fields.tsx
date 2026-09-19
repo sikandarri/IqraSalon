@@ -1,0 +1,5 @@
+'use client';
+import {Select,SelectContent,SelectItem,SelectTrigger,SelectValue} from '@/components/ui/select';
+import {useEffect} from 'react';
+export function Choice({value,onChange,options,label,placeholder='Choose an option'}:{value:string,onChange:(s:string)=>void,options:{value:string,label:string}[],label:string,placeholder?:string}){return <Select value={value||undefined} onValueChange={onChange}><SelectTrigger aria-label={label} className="field-select"><SelectValue placeholder={placeholder}/></SelectTrigger><SelectContent>{options.map(o=><SelectItem key={o.value} value={o.value}>{o.label}</SelectItem>)}</SelectContent></Select>}
+export function FontLoader({url}:{url?:string}){useEffect(()=>{if(!url)return;let face:FontFace|undefined,alive=true;try{const u=new URL(url,location.origin);if(u.protocol!=='https:'&&u.origin!==location.origin)return;face=new FontFace('Fugi',`url(${JSON.stringify(u.href)})`);face.load().then(f=>{if(alive)document.fonts.add(f);}).catch(()=>{});}catch{}return()=>{alive=false;if(face)document.fonts.delete(face);};},[url]);return null;}
