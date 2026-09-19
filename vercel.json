@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "framework": "vite",
   "buildCommand": "pnpm build:mern",
   "outputDirectory": "dist-mern",
   "functions": {
@@ -8,7 +9,13 @@
     }
   },
   "rewrites": [
-    {"source": "/admin", "destination": "/index.html"},
-    {"source": "/admin/:path*", "destination": "/index.html"}
+    {
+      "source": "/admin",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/admin/:path*",
+      "destination": "/index.html"
+    }
   ]
 }
